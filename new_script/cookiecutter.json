@@ -1,0 +1,9 @@
+{
+   "project_name": "Parse file",
+   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+   "project_short_description": "A one-sentence description of the project",
+   "name": "Dave Tang",
+   "year": "2023",
+   "language": ["Bash", "R", "Perl", "Python", "Ruby"],
+   "script_name": "parse.sh"
+}
