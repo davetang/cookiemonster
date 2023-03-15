@@ -12,5 +12,13 @@ Generate a new Bash, R, Perl, Python, or Ruby template script that accepts
 positional and optional command line arguments.
 
 ```console
-cookiecutter new_script/
+cookiecutter new_script
+```
+
+## WDL workflow template
+
+Generate a new WDL workflow.
+
+```console
+cookiecutter wdl_workflow
 ```
