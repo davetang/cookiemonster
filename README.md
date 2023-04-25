@@ -66,3 +66,12 @@ Generate a new WDL workflow.
 ```console
 cookiecutter wdl_workflow
 ```
+
+## Python3 Virtual Environment
+
+Generate a helper script used for creating a Python3 virtual environment for
+installing tools, etc.
+
+```console
+cookiecutter venv
+```
