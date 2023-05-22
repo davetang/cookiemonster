@@ -1,0 +1,9 @@
+{
+   "project_name": "New analysis",
+   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+   "project_short_description": "A one-sentence description of the analysis",
+   "r_version": "4.3.0",
+   "name": "Dave Tang",
+   "user": "dtang",
+   "email": "me@davetang.org"
+}

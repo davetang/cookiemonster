@@ -1,0 +1,30 @@
+---
+title: "{{cookiecutter.project_name}}"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+theme_set(theme_bw())
+knitr::opts_chunk$set(cache = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.path = "./img/")
+```
+
+# {{cookiecutter.project_name}}
+
+Written by {{cookiecutter.name}} ({{cookiecutter.email}}).
+
+Document generation time.
+
+```{r system_time, echo = FALSE}
+Sys.time()
+```
+
+{{cookiecutter.project_short_description}}
+
+# Session info
+
+```{r system_info, echo = FALSE}
+sessionInfo()
+```
