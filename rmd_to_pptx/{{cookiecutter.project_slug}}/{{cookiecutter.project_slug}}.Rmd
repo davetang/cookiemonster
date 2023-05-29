@@ -1,0 +1,116 @@
+---
+title: "{{cookiecutter.project_name}}"
+subtitle: "By {{cookiecutter.name}} ({{cookiecutter.email}}) `r Sys.Date()`"
+output: powerpoint_presentation
+date: "`r Sys.Date()`"
+params:
+  fig_width: 12
+  fig_height: 8
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+theme_set(theme_bw())
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+## {{cookiecutter.project_name}}
+
+{{cookiecutter.project_short_description}}
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Useful docs
+
+* [Rendering PowerPoint Presentations with the RStudio IDE](https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE)
+* [R Markdown section on PowerPoint presentations](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html)
+
+## Markdown to slides
+
+Pandoc determines the slide level, the markdown document is carved up into slides according the the following rules:
+
+* Headers at the slide level always starts a new slide
+* Headers above the slide level in the hierarchy create section headers
+* Headers below the slide level in the hierarchy create headers within a slide
+* A horizontal rule always starts a new slide
+* A title page is constructed automatically from the document’s title (i.e. YAML) block
+
+## Markdown features
+
+*italic* 
+**bold** 
+~~strikeout~~ 
+~subscript~
+^superscript^
+[small caps]{.smallcaps} 
+`verbatim`
+
+1. Numbered list
+* Unnumbered list
+
+$math-expression$
+$$math-equation$$
+
+[link](target) 
+
+> Block quotations
+
+## Table
+
+ manufacturer    displ   hwy     class
+-------------    ------  -----  ---------
+        audi     1.8     29      compact
+   chevrolet     5.3     20        suv
+       dodge     2.4     24      minivan
+       
+Table: Simple table syntax and caption.
+       
+## Table 2 (using different Markdown)
+
+| manufacturer  | displ  | hwy   | class     |
+| ------------: | :----- | :---- | :-------: |
+|        audi   |   1.8  |  29   | compact   |
+|   chevrolet   |   5.3  |  20   | suv       |
+|       dodge   |   2.4  |  24   | minivan   |
+
+Table: Simple table syntax and caption.
+
+## Two content layout
+
+:::::::::::::: {.columns}
+::: {.column}
+one
+:::
+::: {.column}
+two
+:::
+::::::::::::::
+
+## Speaker notes
+
+My slide.
+
+::: notes
+This is a speaker note.
+
+- Use basic Markdown
+- like this list
+- *and inline formatting*
+:::
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure, fig.width=params$fig_width, fig.height=params$fig_height}
+plot(pressure)
+```
