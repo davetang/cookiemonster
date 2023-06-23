@@ -5,10 +5,12 @@
 #
 set -euo pipefail
 
-alpha=unset
-beta=unset
-gamma=unset
-delta=unset
+# default settings
+alpha=0
+beta=0
+gamma=42
+delta=1984
+version=0.0.1
 
 usage(){
 >&2 cat << EOF
@@ -17,12 +19,18 @@ Usage: $0
    [ -b | --beta ]
    [ -g | --gamma input ] 
    [ -d | --delta input ]
+   [ -v | --version ]
    <infile> [infiles]
 EOF
 exit 1
 }
 
-args=$(getopt -a -o abhc:d: --long alpha,beta,help,gamma:,delta: -- "$@")
+print_ver(){
+   >&2 echo ${version}
+   exit 0
+}
+
+args=$(getopt -a -o abhg:d:v --long alpha,beta,help,gamma:,delta:,version -- "$@")
 if [[ $? -gt 0 ]]; then
   usage
 fi
@@ -34,7 +42,8 @@ do
     -a | --alpha)   alpha=1    ; shift   ;;
     -b | --beta)    beta=1     ; shift   ;;
     -h | --help)    usage      ; shift   ;;
-    -c | --gamma)   gamma=$2   ; shift 2 ;;
+    -v | --version) print_ver  ; shift   ;;
+    -g | --gamma)   gamma=$2   ; shift 2 ;;
     -d | --delta)   delta=$2   ; shift 2 ;;
     # -- means the end of the arguments; drop this, and break out of the while loop
     --) shift; break ;;
@@ -51,5 +60,6 @@ fi
 >&2 echo "beta    : ${beta} "
 >&2 echo "gamma   : ${gamma}"
 >&2 echo "delta   : ${delta}"
+>&2 echo "version : ${version}"
 >&2 echo "Parameters remaining are: $@"
 exit 0
