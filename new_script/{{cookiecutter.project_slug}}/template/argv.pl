@@ -8,18 +8,26 @@ use warnings;
 use strict;
 use Getopt::Long;
 
-my $thread  = 8;
+my $thread  = 2;
 my $verbose = 0;
 my $help    = 0;
+my $version = '0.0.1';
+my $print_ver = 0;
 
 GetOptions(
-   "thread=i" => \$thread,   # numeric
-   "verbose"  => \$verbose,  # flag
-   "help"     => \$help      # flag
+   "thread=i"  => \$thread,    # numeric
+   "verbose|b" => \$verbose,   # flag
+   "version|v" => \$print_ver, # flag
+   "help"      => \$help       # flag
 ) or die("Error in command line arguments\n");
 
 if ($help == 1){
    usage()
+}
+
+if ($print_ver == 1){
+   print STDERR "$version\n";
+   exit();
 }
 
 if (scalar @ARGV != 2){
@@ -30,12 +38,13 @@ my $fastq2  = $ARGV[1];
 
 if ($verbose){
    print STDERR "Verbose mode\n";
+   print STDERR "Using $thread threads\n";
 }
-print STDERR join("\n", "Read 1: $fastq1", "Read 2: $fastq2", "Using $thread threads"), "\n";
+print STDERR join("\n", "Read 1: $fastq1", "Read 2: $fastq2"), "\n";
 
 sub usage {
 print STDERR <<EOF;
-Usage: $0 [-h] [-v] [-t INT] read1 read2
+Usage: $0 [-h] [-b] [-v] [-t INT] read1 read2
 
 positional arguments:
   read1                 first read pair
@@ -43,7 +52,8 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -v, --verbose         verbose mode
+  -v, --version         show version and exit
+  -b, --verbose         verbose mode
   -p INT --threads INT  number of threads (default: 8)
 
 EOF
