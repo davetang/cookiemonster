@@ -5,6 +5,7 @@
 #
 
 import argparse
+ver = "0.0.1"
 parser = argparse.ArgumentParser()
 
 #
@@ -13,7 +14,7 @@ parser = argparse.ArgumentParser()
 
 # default type is string
 parser.add_argument(
-        "echo",
+        "string",
         help = "display a string",
 )
 # specify integer type
@@ -30,9 +31,15 @@ parser.add_argument(
 # short and long options
 # store True if specified
 parser.add_argument(
-        "-v",
+        "-b",
         "--verbose",
         help = "verbose mode",
+        action = "store_true"
+)
+parser.add_argument(
+        "-v",
+        "--version",
+        help = "Show script version and exit",
         action = "store_true"
 )
 
@@ -51,8 +58,12 @@ args = parser.parse_args()
 if args.verbose:
     print("Verbose mode")
 
+if args.version:
+    print(ver)
+    quit()
+
 if args.threads:
     print("Using %d threads" % args.threads)
 
-print("%s's type is %s" % (args.echo, type(args.echo)))
+print("%s's type is %s" % (args.string, type(args.string)))
 print("%s's type is %s" % (args.number, type(args.number)))
