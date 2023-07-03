@@ -5,6 +5,8 @@
 #
 
 import argparse
+import os.path
+import fileinput
 ver = "0.0.1"
 parser = argparse.ArgumentParser()
 
@@ -14,8 +16,8 @@ parser = argparse.ArgumentParser()
 
 # default type is string
 parser.add_argument(
-        "string",
-        help = "display a string",
+        "infile",
+        help = "STDOUT from AbRSA",
 )
 # specify integer type
 parser.add_argument(
@@ -65,5 +67,15 @@ if args.version:
 if args.threads:
     print("Using %d threads" % args.threads)
 
-print("%s's type is %s" % (args.string, type(args.string)))
-print("%s's type is %s" % (args.number, type(args.number)))
+# stream from STDIN
+if args.infile == "-":
+    for line in fileinput.input():
+        print(line)
+else:
+    if os.path.exists(args.infile):
+        with open(args.infile) as f:
+            for line in f:
+                print(line)
+    else:
+        print(f"{args.infile} does not exist")
+        quit(1)
