@@ -70,11 +70,13 @@ if args.threads:
 # stream from STDIN
 if args.infile == "-":
     for line in fileinput.input():
+        line = line.rstrip()
         print(line)
 else:
     if os.path.exists(args.infile):
         with open(args.infile) as f:
             for line in f:
+                line = line.rstrip()
                 print(line)
     else:
         print(f"{args.infile} does not exist")
