@@ -1,6 +1,23 @@
+Table of Contents
+=================
+
+* [Cookiecutter templates](#cookiecutter-templates)
+   * [Script template](#script-template)
+   * [WDL workflow template](#wdl-workflow-template)
+   * [Python3 Virtual Environment](#python3-virtual-environment)
+   * [R Markdown documents](#r-markdown-documents)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+
 # Cookiecutter templates
 
-Install [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) using `pip`.
+Cookiecutter is a templating tool. For example, let's say you wanted to write a
+new Python script. You can define a template that you can use to generate a new
+Python script that is already populated with useful code snippets. (My
+`new_script` template was written for this purpose.)
+
+Install [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) using
+`pip`.
 
 ```console
 pip install cookiecutter
@@ -74,4 +91,15 @@ installing tools, etc.
 
 ```console
 cookiecutter venv
+```
+
+## R Markdown documents
+
+Generate a template R Markdown document that outputs a Markdown document or
+PowerPoint document. The template also generates a script for rendering the R
+Markdown document.
+
+```console
+cookiecutter rmd_to_pptx
+cookiecutter rmd_to_md
 ```
