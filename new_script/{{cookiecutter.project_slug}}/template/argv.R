@@ -4,7 +4,7 @@
 # Year {{ cookiecutter.year }}
 #
 
-script_ver <- '0.0.1'
+script_ver <- '0.1.0'
 
 suppressPackageStartupMessages(library(optparse))
 

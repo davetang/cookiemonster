@@ -11,7 +11,7 @@ use Getopt::Long;
 my $thread  = 2;
 my $verbose = 0;
 my $help    = 0;
-my $version = '0.0.1';
+my $version = '0.1.0';
 my $print_ver = 0;
 
 GetOptions(

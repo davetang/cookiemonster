@@ -10,14 +10,14 @@ alpha=0
 beta=0
 gamma=42
 delta=1984
-version=0.0.1
+version=0.1.0
 
 usage(){
 >&2 cat << EOF
 Usage: $0
    [ -a | --alpha ]
    [ -b | --beta ]
-   [ -g | --gamma input ] 
+   [ -g | --gamma input ]
    [ -d | --delta input ]
    [ -v | --version ]
    <infile> [infiles]

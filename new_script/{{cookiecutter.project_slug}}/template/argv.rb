@@ -7,7 +7,7 @@
 # require OptionParser
 require 'optparse'
 
-ver = "0.0.1"
+ver = "0.1.0"
 
 usage = -<<EOF
 Usage: #{$0} [-h] [-b] [-v] [-t INT] read1 read2
