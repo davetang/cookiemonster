@@ -1,0 +1,34 @@
+# name of workflow that will be displayed on the actions page
+name: Create README.md
+
+# execute workflow only when these files are modified
+on:
+  push:
+    paths:
+      - 'readme.qmd'
+      - 'render.sh'
+      - '.github/workflows/create_readme.yml'
+  workflow_dispatch:
+
+# a list of the jobs that run as part of the workflow
+jobs:
+  make_markdown:
+    runs-on: ubuntu-latest
+
+    # a list of the steps that will run as part of the job
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The workflow is now ready to test your code on the runner."
+
+      - name: Build README
+        run: ./render.sh readme.qmd README.md
+
+      - name: Commit report
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email '{{cookiecutter.email}}'
+          git config --global --add safe.directory /__w/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}
+          git add "README.md"
+          git commit -m "Build README.md"
+          git push origin main
