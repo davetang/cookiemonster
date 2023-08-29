@@ -6,15 +6,19 @@ Table of Contents
    * [WDL workflow template](#wdl-workflow-template)
    * [Python3 Virtual Environment](#python3-virtual-environment)
    * [R Markdown documents](#r-markdown-documents)
+   * [GitHub README](#github-readme)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
 
 # Cookiecutter templates
 
-Cookiecutter is a templating tool. For example, let's say you wanted to write a
-new Python script. You can define a template that you can use to generate a new
-Python script that is already populated with useful code snippets. (My
-`new_script` template was written for this purpose.)
+Cookiecutter is a templating tool; you use it to generate new files based on a
+template that you or someone else has already defined. For example, let's say
+you wanted to write a new Python script. Instead of starting from scratch, you
+define a template with some code snippets you commonly use, like some usage
+code; this is actually my `new_script` template. Then you run `cookiecutter`
+with the template, answer some questions, and the new file/s will be generated
+according to what you answered. That's it!
 
 Install [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) using
 `pip`.
@@ -102,4 +106,16 @@ Markdown document.
 ```console
 cookiecutter rmd_to_pptx
 cookiecutter rmd_to_md
+```
+
+## GitHub README
+
+To use this template, first make a GitHub repo on
+[github.com](https://github.com/). The project slug needs to match the repo
+name you chose on GitHub. The template will generate a Quarto document that
+will be rendered automatically into `README.md` by GitHub Actions when you push
+to GitHub.
+
+```console
+cookiecutter github_readme
 ```
