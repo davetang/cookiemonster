@@ -30,10 +30,8 @@ fi
 # upgrade pip
 ${pip_bin} install --upgrade pip
 
-# add installation commands below
-cd {{ cookiecutter.dir_name }}
-
-# ${pip_bin} install -r requirements.txt
+# modify requirements.txt with packages you need
+${pip_bin} install -r requirements.txt
 # end installation
 
 deactivate
