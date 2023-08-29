@@ -7,7 +7,7 @@
 import argparse
 import os.path
 import fileinput
-ver = "0.0.1"
+ver = "0.1.0"
 parser = argparse.ArgumentParser()
 
 #
@@ -41,8 +41,9 @@ parser.add_argument(
 parser.add_argument(
         "-v",
         "--version",
-        help = "Show script version and exit",
-        action = "store_true"
+        help = "show script version and exit",
+        action = "version",
+        version = ver
 )
 
 # set choices for argument and default value
@@ -59,10 +60,6 @@ args = parser.parse_args()
 
 if args.verbose:
     print("Verbose mode")
-
-if args.version:
-    print(ver)
-    quit()
 
 if args.threads:
     print("Using %d threads" % args.threads)
