@@ -8,6 +8,7 @@ cat <<EOF > cookiecutter.json
    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
    "project_short_description": "A one-sentence description of the analysis",
    "github_account": "davetang",
+   "engine": ["knitr", "jupyter"],
    "name": "Dave Tang",
    "email": "davetingpongtang@gmail.com"
 }

@@ -1,6 +1,5 @@
 ---
 title: "{{cookiecutter.project_name}}"
-date: '`r format(Sys.Date(), "%Y-%m-%d")`'
 date-format: "YYYY-MM-DD"
 execute:
   echo: true
@@ -9,7 +8,7 @@ format:
    gfm:
      html-math-method: webtex
      toc: true
-engine: knitr
+engine: {{cookiecutter.engine}}
 ---
 
 ![Build README](https://github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_slug}}/actions/workflows/create_readme.yml/badge.svg)
@@ -28,8 +27,16 @@ To learn.
 
 Bash version used to generate this document.
 
+{% if cookiecutter.engine == 'knitr' %}
 ```{bash}
 #| label: bash_version
 
 bash --version
 ```
+{% elif cookiecutter.engine == 'jupyter' %}
+```{python}
+#| label: bash_version
+
+!bash --version
+```
+{% endif %}

@@ -52,7 +52,12 @@ SECONDS=0
 
 r_version=4.3.1
 docker_image=davetang/quarto:${r_version}
+{% if cookiecutter.engine == 'knitr' %}
 package_dir=${HOME}/r_packages_${r_version}
+{% elif cookiecutter.engine == 'jupyter' %}
+package_dir=/tmp
+{% endif %}
+
 if [[ ! -d ${package_dir} ]]; then
    mkdir ${package_dir}
 fi
@@ -71,7 +76,7 @@ docker run \
    --rm \
    --env DENO_DIR=/tmp/quarto_deno_cache_home \
    --env XDG_CACHE_HOME=/tmp/quarto_cache_home \
-   --env XDG_DATA_HOME=/tmp/quarto_data_home \
+   --env XDG_DATA_HOME=/tmp/quarto_data_home {% if cookiecutter.engine == 'jupyter' %} --env HOME=$(pwd) {% endif %} \
    -v $(pwd):$(pwd) \
    -v ${package_dir}:/packages \
    -w $(pwd) \
