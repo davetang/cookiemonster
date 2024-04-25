@@ -1,14 +1,12 @@
-Table of Contents
-=================
+# Table of Contents
 
-* [Cookiecutter templates](#cookiecutter-templates)
-   * [Script template](#script-template)
-   * [WDL workflow template](#wdl-workflow-template)
-   * [Python3 Virtual Environment](#python3-virtual-environment)
-   * [R Markdown documents](#r-markdown-documents)
-   * [GitHub README](#github-readme)
-
-<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+- [Cookiecutter templates](#cookiecutter-templates)
+  - [Script template](#script-template)
+  - [WDL workflow template](#wdl-workflow-template)
+  - [Python3 Virtual Environment](#python3-virtual-environment)
+  - [R Markdown documents](#r-markdown-documents)
+  - [GitHub README](#github-readme)
+  - [New project](#new-project)
 
 # Cookiecutter templates
 
@@ -118,4 +116,12 @@ to GitHub.
 
 ```console
 cookiecutter github_readme
+```
+
+## New project
+
+As per my [blog post](https://davetang.org/muse/2018/02/09/organising-computational-biology-projects-cookiecutter/).
+
+```console
+cookiecutter new_project
 ```

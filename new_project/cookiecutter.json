@@ -1,0 +1,9 @@
+{
+   "project_name": "my_project",
+   "documentation": "doc",
+   "data": "data",
+   "source": "src",
+   "bin": "bin",
+   "results": "results",
+   "README": "README"
+}
